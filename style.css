@@ -171,29 +171,27 @@ body {
   border-radius: 2px 8px 2px 2px;
   z-index: 2;
 }
-.blogfolder-row {
+.blogs-list {
   display: none;
   justify-content: center;
   gap: 24px;
   margin: 30px 0 0;
   animation: fadeIn 0.5s;
 }
-.blogfolder-btn {
+.blog-btn {
   background: #fff3e0;
+  color: #1976d2;
   border: none;
-  color: #1565c0;
-  padding: 19px 38px;
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
   cursor: pointer;
-  border-radius: 22px;
-  font-size: 1.07rem;
-  font-weight: 700;
   transition: background 0.2s, color 0.2s;
-  letter-spacing: 1px;
-  box-shadow: 0 2px 14px #90caf988;
-  outline: none;
-  text-align: center;
+  box-shadow: 0 2px 8px #1976d244;
 }
-.blogfolder-btn:hover, .blogfolder-btn.active {
+.blog-btn:hover, .blog-btn.active {
   background: #bbdefb;
   color: #222;
 }
@@ -225,47 +223,20 @@ body {
 }
 .blog-post {
   background: #e3f2fd;
-  color: #2d1200;
-  border-radius: 12px;
+  color: #222;
+  border-radius: 14px;
   margin: 32px auto 30px auto;
   padding: 34px 32px 24px 32px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
   max-width: 650px;
   text-align: left;
   display: block;
 }
 .blog-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 420px;
   display: block;
   margin: 0 auto 22px auto;
   border-radius: 8px;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.10);
-}
-.blog-post h2 {
-  color: #1976d2;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-size: 1.32em;
-  letter-spacing: 1px;
-}
-.blog-date {
-  color: #444;
-  font-size: 1em;
-  margin-bottom: 1.2em;
-}
-.blog-post p {
-  margin-bottom: 1.05em;
-  line-height: 1.7;
-}
-.blog-post ol {
-  margin-left: 1.2em;
-  margin-bottom: 1.3em;
-}
-.blog-post li {
-  margin-bottom: 0.37em;
-}
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-    }
+  box-shadow: 0 
+
