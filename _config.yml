@@ -1,1 +1,6 @@
 theme: minima
+minima:
+  skin: classic
+
+assets:
+  main: assets/main.css
