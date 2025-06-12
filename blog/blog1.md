@@ -1,24 +1,29 @@
----
-title: "Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1"
-date: "2025-06-12"
-image: "halloweencolors.png"
----
-
-![Halloween Colors](halloweencolors.png)
+# Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1
 
 **Date:** June 12th, 2025
 
 Hello, it is me, Julie, the Halloween lover, and in this first blog post, I want to talk about superstitions that are really interesting.
 
+![Halloween illustration](Halloweencolors.png)
+
 1. Young women back then would look into mirrors, hoping to see their future husband.
+
 2. Seeing a spider on Halloween means that a deceased loved one is watching over you.
+
 3. Dogs howling on Halloween can mean that they try to summon the dead.
+
 4. If you hear an owl making sounds on Halloween, that can mean a witch is close, looking for ingredients or casting spells.
+
 5. It is believed that you should not sweep your home on Halloween night; you might sweep away the good spirits.
+
 6. Knocking 13 times on a wooden door is not advised on Halloween, since you might invite a demon.
+
 7. If a cat crosses your path from left to right on Halloween, then lucky you—money is coming your way.
+
 8. Previously, before pumpkins, people used to carve turnips on Halloween.
+
 9. Bats flying in circles three times around your home on Halloween is not a good sign; it could mean that a loved one is about to pass away.
+
 10. Wearing red, in Balkan folklore, was believed to keep vampires away.
 
 Be excited for part 2. For now, have a good day.  
