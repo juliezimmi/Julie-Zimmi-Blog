@@ -1,81 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Julie Zimmi Blog - Halloween Gallery</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: 2em auto;
-            background: white;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin-top: 0;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-        }
-        .gallery img {
-            width: 150px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.15);
-            background: #fff;
-            padding: 4px;
-        }
-        .caption {
-            text-align: center;
-            margin-top: 4px;
-            font-size: 1em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Julie Zimmi Blog</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: orange;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 32px;
+    }
+    .top-image {
+      margin-top: 32px;
+      width: 480px;
+      max-width: 90vw;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      border: 5px solid #fff3e0;
+      background: #fff;
+      object-fit: cover;
+    }
+    .blog-title {
+      font-size: 2.3rem;
+      font-weight: bold;
+      margin: 22px 0 18px;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #d35400, 0 0px 2px #fff;
+      text-align: center;
+    }
+    .menu {
+      display: flex;
+      gap: 34px;
+      justify-content: center;
+      background: #fff3e0;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 14px 56px;
+      margin-bottom: 32px;
+    }
+    .menu-btn {
+      background: #ff6f3c;
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      outline: none;
+    }
+    .menu-btn:hover, .menu-btn.active {
+      background: #ffa36c;
+      color: #222;
+    }
+    .folders-row {
+      display: none;
+      justify-content: center;
+      gap: 24px;
+      margin: 28px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .folders-row.active {
+      display: flex;
+    }
+    .folder-btn {
+      background: #ffe0b2;
+      border: none;
+      color: #d35400;
+      padding: 18px 36px 18px 56px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      position: relative;
+      min-width: 180px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #ffd18055;
+      outline: none;
+      text-align: left;
+    }
+    .folder-btn:hover, .folder-btn.active {
+      background: #ffd180;
+      color: #222;
+    }
+    .folder-btn::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      width: 32px;
+      height: 26px;
+      background: #ffc107;
+      border-radius: 6px 6px 2px 2px;
+      box-shadow: 0 8px 0 0 #ffb300 inset;
+      z-index: 1;
+    }
+    .folder-btn::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 10px;
+      width: 18px;
+      height: 9px;
+      background: #ffe082;
+      border-radius: 2px 8px 2px 2px;
+      z-index: 2;
+    }
+    .subfolders-row {
+      display: none;
+      justify-content: center;
+      gap: 24px;
+      margin: 18px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .subfolders-row.active {
+      display: flex;
+    }
+    .subfolder-btn {
+      background: #e1bee7;
+      border: none;
+      color: #6d1b7b;
+      padding: 17px 38px 17px 56px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.13rem;
+      font-weight: 500;
+      position: relative;
+      min-width: 192px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #ba68c855;
+      outline: none;
+      text-align: left;
+    }
+    .subfolder-btn:hover, .subfolder-btn.active {
+      background: #ce93d8;
+      color: #222;
+    }
+    .subfolder-btn::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      width: 32px;
+      height: 24px;
+      background: #d1c4e9;
+      border-radius: 6px 6px 2px 2px;
+      box-shadow: 0 8px 0 0 #b39ddb inset;
+      z-index: 1;
+    }
+    .subfolder-btn::after {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: 9px;
+      width: 14px;
+      height: 7px;
+      background: #ede7f6;
+      border-radius: 2px 8px 2px 2px;
+      z-index: 2;
+    }
+    .gallery {
+      display: none;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 32px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .gallery.active {
+      display: flex;
+    }
+    .gallery img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border: 4px solid #ff6f3c;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s, border 0.2s;
+      cursor: pointer;
+      background: #fff;
+    }
+    .gallery img:hover {
+      transform: scale(1.07) rotate(-2deg);
+      border: 4px solid #ffa36c;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Julie Zimmi Blog - Halloween Gallery</h1>
-    </header>
-    <main>
-        <section class="gallery">
-            <div>
-                <img src="Halloween-images/Halloween1.jpg" alt="Halloween 1">
-                <div class="caption">Halloween 1</div>
-            </div>
-            <div>
-                <img src="Halloween-images/Halloween2.jpg" alt="Halloween 2">
-                <div class="caption">Halloween 2</div>
-            </div>
-            <div>
-                <img src="Halloween-images/Halloween3.jpg" alt="Halloween 3">
-                <div class="caption">Halloween 3</div>
-            </div>
-            <div>
-                <img src="Halloween-images/Halloween4.jpg" alt="Halloween 4">
-                <div class="caption">Halloween 4</div>
-            </div>
-            <div>
-                <img src="Halloween-images/Halloween5.jpg" alt="Halloween 5">
-                <div class="caption">Halloween 5</div>
-            </div>
-        </section>
-    </main>
+  <div class="container">
+    <!-- Top image as provided by the user -->
+    <img class="top-image" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-vDq2W4B6qhCE2wOZ9hWw1t3d/user-jzMB5D6Id8Qd8iKf5hYtE5yP/img-2d7ff1f4b1c24d7b8f3e3a5b41b33f8b.png?st=2024-06-12T13%3A38%3A31Z&se=2024-06-12T15%3A38%3A31Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image&skoid=34d3e8e6-5c3c-4e4a-9e25-6f7f7f1e9d1b&sktid=4e8b6e3d-1260-4c66-aae6-4a1b3b4d3e91&skt=2024-06-12T13%3A38%3A31Z&ske=2024-06-13T13%3A38%3A31Z&sks=b&skv=2021-08-06&sig=nV%2B1Q0YkTWqLtk6f5V3nRjQbWkK9Jg2xW4pA%2B7kOX6g%3D" alt="Halloween Scene" />
+    <div class="blog-title">Julie Zimmi Blog</div>
+    <nav class="menu">
+      <button class="menu-btn" id="showFoldersBtn">Menu</button>
+    </nav>
+    <div class="folders-row" id="foldersRow">
+      <button class="folder-btn" id="showSubfolderBtn">Folders</button>
+    </div>
+    <div class="subfolders-row" id="subfoldersRow">
+      <button class="subfolder-btn" id="showGalleryBtn">Halloween Images</button>
+    </div>
+    <section class="gallery" id="gallerySection">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pumpkin">
+      <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80" alt="Ghost">
+      <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80" alt="Spooky House">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Black Cat">
+      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=400&q=80" alt="Halloween Party">
+    </section>
+  </div>
+  <script>
+    // Elements
+    const showFoldersBtn = document.getElementById('showFoldersBtn');
+    const foldersRow = document.getElementById('foldersRow');
+    const showSubfolderBtn = document.getElementById('showSubfolderBtn');
+    const subfoldersRow = document.getElementById('subfoldersRow');
+    const showGalleryBtn = document.getElementById('showGalleryBtn');
+    const gallerySection = document.getElementById('gallerySection');
+
+    // Step 1: Click Menu to show Folders
+    showFoldersBtn.addEventListener('click', () => {
+      foldersRow.classList.toggle('active');
+      subfoldersRow.classList.remove('active');
+      gallerySection.classList.remove('active');
+    });
+
+    // Step 2: Click Folders to show Halloween Images
+    showSubfolderBtn.addEventListener('click', () => {
+      subfoldersRow.classList.toggle('active');
+      gallerySection.classList.remove('active');
+    });
+
+    // Step 3: Click Halloween Images to show gallery
+    showGalleryBtn.addEventListener('click', () => {
+      gallerySection.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
