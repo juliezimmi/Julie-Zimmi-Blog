@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+    }
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(80,80,120,0.12);
+    }
+    h2 {
+      text-align: center;
+      color: #4e54c8;
+    }
+    .input-section {
+      display: flex;
+      gap: 0.5em;
+      margin-bottom: 1.2em;
+    }
+    .input-section input[type="text"] {
+      flex: 1;
+      padding: 0.6em;
+      border: 1px solid #bfc4d1;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    .input-section button {
+      padding: 0.6em 1em;
+      background: #4e54c8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .input-section button:hover {
+      background: #31337b;
+    }
+    ul.todo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    ul.todo-list li {
+      display: flex;
+      align-items: center;
+      padding: 0.5em 0;
+      border-bottom: 1px solid #eee;
+    }
+    ul.todo-list li:last-child {
+      border-bottom: none;
+    }
+    .todo-text {
+      flex: 1;
+      padding: 0 0.5em;
+      word-break: break-word;
+    }
+    .delete-btn {
+      background: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .delete-btn:hover {
+      background: #e63946;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>To-Do List</h2>
+    <div class="input-section">
+      <input type="text" id="todoInput" placeholder="Add a new task..." />
+      <button onclick="addTodo()">Add</button>
+    </div>
+    <ul class="todo-list" id="todoList"></ul>
+  </div>
+  <script>
+    // Load todos from localStorage or start with empty array
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+    function saveTodos() {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    function renderTodos() {
+      const todoList = document.getElementById('todoList');
+      todoList.innerHTML = '';
+      todos.forEach((todo, idx) => {
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        span.className = 'todo-text' + (todo.completed ? ' completed' : '');
+        span.textContent = todo.text;
+        span.onclick = () => toggleTodo(idx);
+
+        const del = document.createElement('button');
+        del.className = 'delete-btn';
+        del.innerHTML = '&times;';
+        del.onclick = (e) => {
+          e.stopPropagation();
+          deleteTodo(idx);
+        };
+
+        li.appendChild(span);
+        li.appendChild(del);
+        todoList.appendChild(li);
+      });
+    }
+
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      const text = input.value.trim();
+      if (text) {
+        todos.push({ text, completed: false });
+        saveTodos();
+        renderTodos();
+        input.value = '';
+      }
+    }
+
+    function toggleTodo(idx) {
+      todos[idx].completed = !todos[idx].completed;
+      saveTodos();
+      renderTodos();
+    }
+
+    function deleteTodo(idx) {
+      todos.splice(idx, 1);
+      saveTodos();
+      renderTodos();
+    }
+
+    // Allow Enter key to add todos
+    document.getElementById('todoInput').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') addTodo();
+    });
+
+    // Initial render
+    renderTodos();
+  </script>
+</body>
+    </html>
