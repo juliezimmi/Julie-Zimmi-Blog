@@ -3,11 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <title>Julie Zimmi Blog</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: orange;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #222;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 32px;
+    }
+    .top-image {
+      margin-top: 32px;
+      width: 480px;
+      max-width: 90vw;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      border: 5px solid #fff3e0;
+      background: #fff;
+      object-fit: cover;
+    }
+    .blog-title {
+      font-size: 2.3rem;
+      font-weight: bold;
+      margin: 22px 0 18px;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px #d35400, 0 0px 2px #fff;
+      text-align: center;
+    }
+    .menu {
+      display: flex;
+      gap: 34px;
+      justify-content: center;
+      background: #fff3e0;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 14px 56px;
+      margin-bottom: 32px;
+    }
+    .menu-btn {
+      background: #ff6f3c;
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      outline: none;
+    }
+    .menu-btn:hover, .menu-btn.active {
+      background: #ffa36c;
+      color: #222;
+    }
+    .folders-row {
+      display: none;
+      justify-content: center;
+      gap: 24px;
+      margin: 28px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .folders-row.active {
+      display: flex;
+    }
+    .folder-btn {
+      background: #ffe0b2;
+      border: none;
+      color: #d35400;
+      padding: 18px 36px 18px 56px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      position: relative;
+      min-width: 180px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #ffd18055;
+      outline: none;
+      text-align: left;
+    }
+    .folder-btn:hover, .folder-btn.active {
+      background: #ffd180;
+      color: #222;
+    }
+    .folder-btn::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      width: 32px;
+      height: 26px;
+      background: #ffc107;
+      border-radius: 6px 6px 2px 2px;
+      box-shadow: 0 8px 0 0 #ffb300 inset;
+      z-index: 1;
+    }
+    .folder-btn::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 10px;
+      width: 18px;
+      height: 9px;
+      background: #ffe082;
+      border-radius: 2px 8px 2px 2px;
+      z-index: 2;
+    }
+    .subfolders-row {
+      display: none;
+      justify-content: center;
+      gap: 24px;
+      margin: 18px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .subfolders-row.active {
+      display: flex;
+    }
+    .subfolder-btn {
+      background: #e1bee7;
+      border: none;
+      color: #6d1b7b;
+      padding: 17px 38px 17px 56px;
+      cursor: pointer;
+      border-radius: 18px;
+      font-size: 1.13rem;
+      font-weight: 500;
+      position: relative;
+      min-width: 192px;
+      transition: background 0.2s, color 0.2s;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #ba68c855;
+      outline: none;
+      text-align: left;
+    }
+    .subfolder-btn:hover, .subfolder-btn.active {
+      background: #ce93d8;
+      color: #222;
+    }
+    .subfolder-btn::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      width: 32px;
+      height: 24px;
+      background: #d1c4e9;
+      border-radius: 6px 6px 2px 2px;
+      box-shadow: 0 8px 0 0 #b39ddb inset;
+      z-index: 1;
+    }
+    .subfolder-btn::after {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: 9px;
+      width: 14px;
+      height: 7px;
+      background: #ede7f6;
+      border-radius: 2px 8px 2px 2px;
+      z-index: 2;
+    }
+    .gallery {
+      display: none;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 32px 0 0;
+      animation: fadeIn 0.5s;
+    }
+    .gallery.active {
+      display: flex;
+    }
+    .gallery img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border: 4px solid #ff6f3c;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s, border 0.2s;
+      cursor: pointer;
+      background: #fff;
+    }
+    .gallery img:hover {
+      transform: scale(1.07) rotate(-2deg);
+      border: 4px solid #ffa36c;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <img src="Halloween-images/Halloween1.jpg" alt="Halloween1" class="header-img" />
+    <img class="top-image" src="Halloween-images/Halloween1.jpg" alt="Halloween1" />
     <div class="blog-title">Julie Zimmi Blog</div>
     <nav class="menu">
       <button class="menu-btn" id="showFoldersBtn">Menu</button>
@@ -17,12 +216,6 @@
     </div>
     <div class="subfolders-row" id="subfoldersRow">
       <button class="subfolder-btn" id="showGalleryBtn">Halloween Images</button>
-      <button class="subfolder-btn" id="showBlogsBtn">Blogs</button>
-    </div>
-    <div class="blogs-list" id="blogsList" style="display:none;">
-      <button class="blog-btn" id="showBlog1Btn">
-        Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1
-      </button>
     </div>
     <section class="gallery" id="gallerySection">
       <img src="Halloween-images/Halloween1.jpg" alt="Halloween1">
@@ -31,66 +224,32 @@
       <img src="Halloween-images/Halloween4.jpg" alt="Halloween4">
       <img src="Halloween-images/Halloween5.jpg" alt="Halloween5">
     </section>
-    <section class="blog-post" id="blog1Section" style="display:none;">
-      <img src="halloweencolors.png" alt="Halloween Colors" class="blog-image" />
-      <h2>Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1</h2>
-      <div class="blog-date">Date: June 12th, 2025</div>
-      <p>Hello, it is me, Julie, the Halloween lover, and in this first blog post, I want to talk about superstitions that are really interesting.</p>
-      <ol>
-        <li>Young women back then would look into mirrors, hoping to see their future husband.</li>
-        <li>Seeing a spider on Halloween means that a deceased loved one is watching over you.</li>
-        <li>Dogs howling on Halloween can mean that they try to summon the dead.</li>
-        <li>If you hear an owl making sounds on Halloween, that can mean a witch is close, looking for ingredients or casting spells.</li>
-        <li>It is believed that you should not sweep your home on Halloween night; you might sweep away the good spirits.</li>
-        <li>Knocking 13 times on a wooden door is not advised on Halloween, since you might invite a demon.</li>
-        <li>If a cat crosses your path from left to right on Halloween, then lucky you—money is coming your way.</li>
-        <li>Previously, before pumpkins, people used to carve turnips on Halloween.</li>
-        <li>Bats flying in circles three times around your home on Halloween is not a good sign; it could mean that a loved one is about to pass away.</li>
-        <li>Wearing red, in Balkan folklore, was believed to keep vampires away.</li>
-      </ol>
-      <p>Be excited for part 2. For now, have a good day.<br>
-        Love, Julie ❤</p>
-    </section>
   </div>
   <script>
-    // Folder navigation logic
+    // Elements
     const showFoldersBtn = document.getElementById('showFoldersBtn');
     const foldersRow = document.getElementById('foldersRow');
     const showSubfolderBtn = document.getElementById('showSubfolderBtn');
     const subfoldersRow = document.getElementById('subfoldersRow');
     const showGalleryBtn = document.getElementById('showGalleryBtn');
     const gallerySection = document.getElementById('gallerySection');
-    const showBlogsBtn = document.getElementById('showBlogsBtn');
-    const blogsList = document.getElementById('blogsList');
-    const showBlog1Btn = document.getElementById('showBlog1Btn');
-    const blog1Section = document.getElementById('blog1Section');
 
+    // Step 1: Click Menu to show Folders
     showFoldersBtn.addEventListener('click', () => {
       foldersRow.classList.toggle('active');
       subfoldersRow.classList.remove('active');
       gallerySection.classList.remove('active');
-      blogsList.style.display = "none";
-      blog1Section.style.display = "none";
     });
+
+    // Step 2: Click Folders to show Halloween Images
     showSubfolderBtn.addEventListener('click', () => {
       subfoldersRow.classList.toggle('active');
       gallerySection.classList.remove('active');
-      blogsList.style.display = "none";
-      blog1Section.style.display = "none";
     });
+
+    // Step 3: Click Halloween Images to show gallery
     showGalleryBtn.addEventListener('click', () => {
       gallerySection.classList.toggle('active');
-      blogsList.style.display = "none";
-      blog1Section.style.display = "none";
-    });
-    showBlogsBtn.addEventListener('click', () => {
-      blogsList.style.display = (blogsList.style.display === "none" || blogsList.style.display === "") ? "block" : "none";
-      gallerySection.classList.remove('active');
-      blog1Section.style.display = "none";
-    });
-    showBlog1Btn.addEventListener('click', () => {
-      blog1Section.style.display = (blog1Section.style.display === "none" || blog1Section.style.display === "") ? "block" : "none";
-      gallerySection.classList.remove('active');
     });
   </script>
 </body>
