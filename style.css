@@ -1,9 +1,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ff6f3c 0%, #d35400 100%);
+  background: orange;
   font-family: 'Segoe UI', Arial, sans-serif;
-  color: #fff3e0;
+  color: #222;
 }
 .container {
   display: flex;
@@ -11,28 +11,24 @@ body {
   align-items: center;
   padding-bottom: 32px;
 }
-.header-img {
-  margin-top: 40px;
-  width: 500px;
-  max-width: 92vw;
+.top-image {
+  margin-top: 32px;
+  width: 480px;
+  max-width: 90vw;
   height: auto;
-  border-radius: 28px;
-  box-shadow: 0 6px 42px rgba(44, 20, 0, 0.28);
-  border: 6px solid #fff3e0;
+  border-radius: 22px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  border: 5px solid #fff3e0;
   background: #fff;
   object-fit: cover;
-  display: block;
 }
 .blog-title {
-  font-size: 2.7rem;
+  font-size: 2.3rem;
   font-weight: bold;
-  margin: 30px 0 20px;
+  margin: 22px 0 18px;
   color: #fff;
-  letter-spacing: 2.5px;
-  text-shadow:
-    0 3px 20px #d35400,
-    0 1px 4px #fff,
-    0 0 12px #ff6f3c;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #d35400, 0 0px 2px #fff;
   text-align: center;
 }
 .menu {
@@ -40,24 +36,23 @@ body {
   gap: 34px;
   justify-content: center;
   background: #fff3e0;
-  border-radius: 32px;
-  box-shadow: 0 3px 18px rgba(0,0,0,0.10);
-  padding: 15px 60px;
-  margin-bottom: 34px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 14px 56px;
+  margin-bottom: 32px;
 }
 .menu-btn {
   background: #ff6f3c;
   border: none;
-  color: #fff3e0;
-  padding: 12px 40px;
+  color: white;
+  padding: 10px 32px;
   cursor: pointer;
-  border-radius: 24px;
-  font-size: 1.20rem;
-  font-weight: 600;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  font-weight: 500;
   transition: background 0.2s, color 0.2s;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   outline: none;
-  box-shadow: 0 2px 6px #ffb36c44;
 }
 .menu-btn:hover, .menu-btn.active {
   background: #ffa36c;
@@ -66,27 +61,27 @@ body {
 .folders-row {
   display: none;
   justify-content: center;
-  gap: 26px;
-  margin: 30px 0 0;
+  gap: 24px;
+  margin: 28px 0 0;
   animation: fadeIn 0.5s;
 }
 .folders-row.active {
   display: flex;
 }
 .folder-btn {
-  background: #fff3e0;
+  background: #ffe0b2;
   border: none;
   color: #d35400;
-  padding: 19px 38px 19px 62px;
+  padding: 18px 36px 18px 56px;
   cursor: pointer;
-  border-radius: 22px;
-  font-size: 1.24rem;
-  font-weight: 600;
+  border-radius: 18px;
+  font-size: 1.2rem;
+  font-weight: 500;
   position: relative;
-  min-width: 190px;
+  min-width: 180px;
   transition: background 0.2s, color 0.2s;
   letter-spacing: 1px;
-  box-shadow: 0 2px 14px #ffd18088;
+  box-shadow: 0 2px 12px #ffd18055;
   outline: none;
   text-align: left;
 }
@@ -97,10 +92,10 @@ body {
 .folder-btn::before {
   content: '';
   position: absolute;
-  left: 24px;
+  left: 18px;
   top: 16px;
-  width: 34px;
-  height: 28px;
+  width: 32px;
+  height: 26px;
   background: #ffc107;
   border-radius: 6px 6px 2px 2px;
   box-shadow: 0 8px 0 0 #ffb300 inset;
@@ -109,10 +104,10 @@ body {
 .folder-btn::after {
   content: '';
   position: absolute;
-  left: 31px;
-  top: 9px;
-  width: 19px;
-  height: 11px;
+  left: 24px;
+  top: 10px;
+  width: 18px;
+  height: 9px;
   background: #ffe082;
   border-radius: 2px 8px 2px 2px;
   z-index: 2;
@@ -120,8 +115,8 @@ body {
 .subfolders-row {
   display: none;
   justify-content: center;
-  gap: 26px;
-  margin: 20px 0 0;
+  gap: 24px;
+  margin: 18px 0 0;
   animation: fadeIn 0.5s;
 }
 .subfolders-row.active {
@@ -131,16 +126,16 @@ body {
   background: #e1bee7;
   border: none;
   color: #6d1b7b;
-  padding: 18px 40px 18px 62px;
+  padding: 17px 38px 17px 56px;
   cursor: pointer;
-  border-radius: 22px;
-  font-size: 1.15rem;
-  font-weight: 600;
+  border-radius: 18px;
+  font-size: 1.13rem;
+  font-weight: 500;
   position: relative;
-  min-width: 200px;
+  min-width: 192px;
   transition: background 0.2s, color 0.2s;
   letter-spacing: 1px;
-  box-shadow: 0 2px 14px #ba68c877;
+  box-shadow: 0 2px 12px #ba68c855;
   outline: none;
   text-align: left;
 }
@@ -151,10 +146,10 @@ body {
 .subfolder-btn::before {
   content: '';
   position: absolute;
-  left: 24px;
+  left: 18px;
   top: 14px;
-  width: 34px;
-  height: 26px;
+  width: 32px;
+  height: 24px;
   background: #d1c4e9;
   border-radius: 6px 6px 2px 2px;
   box-shadow: 0 8px 0 0 #b39ddb inset;
@@ -163,44 +158,20 @@ body {
 .subfolder-btn::after {
   content: '';
   position: absolute;
-  left: 31px;
-  top: 8px;
-  width: 15px;
-  height: 8px;
+  left: 25px;
+  top: 9px;
+  width: 14px;
+  height: 7px;
   background: #ede7f6;
   border-radius: 2px 8px 2px 2px;
   z-index: 2;
-}
-.blogs-list {
-  display: none;
-  justify-content: center;
-  gap: 24px;
-  margin: 30px 0 0;
-  animation: fadeIn 0.5s;
-}
-.blog-btn {
-  background: #fff3e0;
-  color: #1976d2;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 16px;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 8px #1976d244;
-}
-.blog-btn:hover, .blog-btn.active {
-  background: #bbdefb;
-  color: #222;
 }
 .gallery {
   display: none;
   gap: 22px;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 36px 0 0;
+  margin: 32px 0 0;
   animation: fadeIn 0.5s;
 }
 .gallery.active {
@@ -211,32 +182,17 @@ body {
   height: 180px;
   object-fit: cover;
   border: 4px solid #ff6f3c;
-  border-radius: 18px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
-  transition: transform 0.21s, border 0.21s;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s, border 0.2s;
   cursor: pointer;
   background: #fff;
 }
 .gallery img:hover {
-  transform: scale(1.08) rotate(-2deg);
+  transform: scale(1.07) rotate(-2deg);
   border: 4px solid #ffa36c;
 }
-.blog-post {
-  background: #e3f2fd;
-  color: #222;
-  border-radius: 14px;
-  margin: 32px auto 30px auto;
-  padding: 34px 32px 24px 32px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
-  max-width: 650px;
-  text-align: left;
-  display: block;
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
-.blog-image {
-  width: 100%;
-  max-width: 420px;
-  display: block;
-  margin: 0 auto 22px auto;
-  border-radius: 8px;
-  box-shadow: 0 
-
