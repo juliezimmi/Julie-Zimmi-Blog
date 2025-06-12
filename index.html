@@ -17,13 +17,12 @@
     </div>
     <div class="subfolders-row" id="subfoldersRow">
       <button class="subfolder-btn" id="showGalleryBtn">Halloween Images</button>
-      <button class="subfolder-btn" id="showBlogFolderBtn">Blog</button>
+      <button class="subfolder-btn" id="showBlogsBtn">Blogs</button>
     </div>
-    <div class="blogfolder-row" id="blogFolderRow" style="display:none;">
-      <button class="blogfolder-btn" id="showBlog1Btn">
+    <div class="blogs-list" id="blogsList" style="display:none;">
+      <button class="blog-btn" id="showBlog1Btn">
         Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1
       </button>
-      <!-- Add more blogfolder-btns for Blog 2, Blog 3, etc. later -->
     </div>
     <section class="gallery" id="gallerySection">
       <img src="Halloween-images/Halloween1.jpg" alt="Halloween1">
@@ -61,8 +60,8 @@
     const subfoldersRow = document.getElementById('subfoldersRow');
     const showGalleryBtn = document.getElementById('showGalleryBtn');
     const gallerySection = document.getElementById('gallerySection');
-    const showBlogFolderBtn = document.getElementById('showBlogFolderBtn');
-    const blogFolderRow = document.getElementById('blogFolderRow');
+    const showBlogsBtn = document.getElementById('showBlogsBtn');
+    const blogsList = document.getElementById('blogsList');
     const showBlog1Btn = document.getElementById('showBlog1Btn');
     const blog1Section = document.getElementById('blog1Section');
 
@@ -70,22 +69,22 @@
       foldersRow.classList.toggle('active');
       subfoldersRow.classList.remove('active');
       gallerySection.classList.remove('active');
-      blogFolderRow.style.display = "none";
+      blogsList.style.display = "none";
       blog1Section.style.display = "none";
     });
     showSubfolderBtn.addEventListener('click', () => {
       subfoldersRow.classList.toggle('active');
       gallerySection.classList.remove('active');
-      blogFolderRow.style.display = "none";
+      blogsList.style.display = "none";
       blog1Section.style.display = "none";
     });
     showGalleryBtn.addEventListener('click', () => {
       gallerySection.classList.toggle('active');
-      blogFolderRow.style.display = "none";
+      blogsList.style.display = "none";
       blog1Section.style.display = "none";
     });
-    showBlogFolderBtn.addEventListener('click', () => {
-      blogFolderRow.style.display = (blogFolderRow.style.display === "none" || blogFolderRow.style.display === "") ? "flex" : "none";
+    showBlogsBtn.addEventListener('click', () => {
+      blogsList.style.display = (blogsList.style.display === "none" || blogsList.style.display === "") ? "block" : "none";
       gallerySection.classList.remove('active');
       blog1Section.style.display = "none";
     });
