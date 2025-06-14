@@ -17,17 +17,57 @@
       align-items: center;
       padding-bottom: 32px;
     }
-    .top-image {
+    .main-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
       margin-top: 32px;
-      width: 370px;
-      max-width: 90vw;
-      height: auto;
+      margin-bottom: 12px;
+    }
+    .main-img-frame {
+      background: #fff;
+      border: 5px solid #fff3e0;
       border-radius: 22px;
       box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-      border: 5px solid #fff3e0;
-      background: #fff;
-      object-fit: cover;
+      width: 370px;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
+    .main-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 17px;
+      background: #fff;
+    }
+    .side-img-frame {
+      background: #fff;
+      border: 5px solid #fff3e0;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      width: 180px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .side-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 17px;
+      background: #fff;
+    }
+    @media (max-width: 950px) {
+      .main-stage { flex-direction: column; gap: 12px; }
+      .main-img-frame, .side-img-frame { width: 80vw; max-width: 370px; height: auto; }
+    }
+    .top-image { display: none; }
     .blog-title {
       font-size: 2.3rem;
       font-weight: bold;
@@ -106,6 +146,10 @@
     .gallery.active {
       display: flex;
     }
+    .gallery a {
+      margin: 0 8px 16px 8px;
+      display: inline-block;
+    }
     .gallery img {
       width: 180px;
       height: 180px;
@@ -116,13 +160,12 @@
       transition: transform 0.2s, border 0.2s;
       cursor: pointer;
       background: #fff;
-      margin: 0 8px 16px 8px;
+      display: block;
     }
     .gallery img:hover {
       transform: scale(1.07) rotate(-2deg);
       border: 4px solid #ffa36c;
     }
-    /* Frame for blog 1 (yellow) and blog 2 (purple) */
     .blog-frame {
       border-radius: 18px;
       padding: 24px;
@@ -183,6 +226,15 @@
     .blog-post p {
       color: #fffbe7;
     }
+    #leaves-container {
+      pointer-events:none;
+      position:fixed;
+      left:0;
+      top:0;
+      width:100vw;
+      height:100vh;
+      z-index:1;
+    }
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -190,8 +242,21 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <img class="top-image" src="Halloween-images/Halloween1.jpg" alt="Halloween1" />
+  <!-- Animated leaves container -->
+  <div id="leaves-container"></div>
+  <div class="container" style="position: relative; z-index: 2;">
+    <!-- Main stage with 3 images using the correct compressed file names in Hallo2 -->
+    <div class="main-stage">
+      <div class="side-img-frame">
+        <img src="Hallo2/Compress_20250614_034708_8625.jpg" alt="Witch Halloween Art">
+      </div>
+      <div class="main-img-frame">
+        <img src="Halloween-images/Halloween1.jpg" alt="Main Halloween image">
+      </div>
+      <div class="side-img-frame">
+        <img src="Hallo2/Compress_20250614_034657_7825.jpg" alt="Ghosts Halloween Art">
+      </div>
+    </div>
     <div class="blog-title">Julie Zimmi Blog</div>
     <button class="menu-btn" id="menuBtn">Menu</button>
     <button class="folder-btn hidden" id="halloweenImagesBtn">Halloween Images</button>
@@ -200,11 +265,35 @@
     <button class="blog-btn hidden" id="blog2Btn">Blog 2: 15 Rare, Interesting Halloween Superstitions!</button>
 
     <section class="gallery" id="gallerySection">
-      <img src="Halloween-images/Halloween1.jpg" alt="Halloween1">
-      <img src="Halloween-images/Halloween2.jpg" alt="Halloween2">
-      <img src="Halloween-images/Halloween3.jpg" alt="Halloween3">
-      <img src="Halloween-images/Halloween4.jpg" alt="Halloween4">
-      <img src="Halloween-images/Halloween5.jpg" alt="Halloween5">
+      <a href="Halloween-images/Halloween1.jpg" target="_blank"><img src="Halloween-images/Halloween1.jpg" alt="Halloween1"></a>
+      <a href="Halloween-images/Halloween2.jpg" target="_blank"><img src="Halloween-images/Halloween2.jpg" alt="Halloween2"></a>
+      <a href="Halloween-images/Halloween3.jpg" target="_blank"><img src="Halloween-images/Halloween3.jpg" alt="Halloween3"></a>
+      <a href="Halloween-images/Halloween4.jpg" target="_blank"><img src="Halloween-images/Halloween4.jpg" alt="Halloween4"></a>
+      <a href="Halloween-images/Halloween5.jpg" target="_blank"><img src="Halloween-images/Halloween5.jpg" alt="Halloween5"></a>
+      <a href="Halloween-images/Compress_20250614_034645_5110.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034645_5110.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034646_6918.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034646_6918.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034648_8991.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034648_8991.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034651_1031.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034651_1031.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034652_2891.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034652_2891.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034655_5378.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034655_5378.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034657_7825.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034657_7825.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034700_0354.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034700_0354.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034703_3109.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034703_3109.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034705_5463.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034705_5463.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034708_8625.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034708_8625.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034710_0196.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034710_0196.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034712_2183.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034712_2183.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034714_4637.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034714_4637.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034717_7399.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034717_7399.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034718_8969.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034718_8969.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034721_1435.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034721_1435.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034724_4704.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034724_4704.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034726_6231.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034726_6231.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034728_8504.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034728_8504.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034730_0051.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034730_0051.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034732_2184.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034732_2184.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034734_4473.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034734_4473.jpg" alt=""></a>
+      <a href="Halloween-images/Compress_20250614_034736_6213.jpg" target="_blank"><img src="Halloween-images/Compress_20250614_034736_6213.jpg" alt=""></a>
     </section>
 
     <!-- Blog 1: Yellow frame, blue post inside -->
@@ -376,6 +465,39 @@
 
     // On page load, hide everything except Menu button
     hideAll();
+
+    // --- Animated Falling Leaves ---
+    const leafImages = [
+      "Nature/Leaf1.jpg",
+      "Nature/Leaf2.jpg",
+      "Nature/Leaf3.jpg",
+      "Nature/Leaf4.jpg"
+    ];
+    const leavesContainer = document.getElementById("leaves-container");
+    function createLeaf() {
+      const leaf = document.createElement('img');
+      leaf.src = leafImages[Math.floor(Math.random() * leafImages.length)];
+      leaf.style.position = 'fixed';
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.top = '-8vh';
+      leaf.style.width = (32 + Math.random() * 38) + 'px';
+      leaf.style.height = 'auto';
+      leaf.style.opacity = 0.66 + Math.random() * 0.34;
+      leaf.style.pointerEvents = 'none';
+      leaf.style.transition = `transform 6.5s linear`;
+      leaf.style.zIndex = 1;
+      // Add a custom rotation for more realism
+      const rotate = Math.random() > 0.5 ? 1 : -1;
+      leaf.style.transform = `rotate(${Math.random()*360}deg)`;
+      leavesContainer.appendChild(leaf);
+
+      setTimeout(() => {
+        leaf.style.transform = `translateY(110vh) rotate(${rotate*80 + Math.random()*80}deg)`;
+      }, 80);
+
+      setTimeout(() => leavesContainer.removeChild(leaf), 7000);
+    }
+    setInterval(createLeaf, 650);
   </script>
 </body>
-          </html>
+      </html>
