@@ -122,11 +122,27 @@
       transform: scale(1.07) rotate(-2deg);
       border: 4px solid #ffa36c;
     }
+    /* Frame for blog 1 (yellow) and blog 2 (purple) */
+    .blog-frame {
+      border-radius: 18px;
+      padding: 24px;
+      max-width: 700px;
+      margin: 34px auto 0 auto;
+      box-sizing: border-box;
+    }
+    .blog-frame.yellow {
+      background: #ffe066;
+      color: #444;
+    }
+    .blog-frame.purple {
+      background: #a9a6e9;
+      color: white;
+    }
     .blog-post {
       background: #3498db;
       color: #fffbe7;
       border-radius: 16px;
-      margin: 34px 0 0;
+      margin: 0;
       padding: 28px 32px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.13);
       max-width: 480px;
@@ -136,6 +152,7 @@
       text-align: left;
       display: none;
       animation: fadeIn 0.5s;
+      position: relative;
     }
     .blog-post.active { display: block; }
     .blog-post h2 {
@@ -190,30 +207,35 @@
       <img src="Halloween-images/Halloween5.jpg" alt="Halloween5">
     </section>
 
-    <div class="blog-post" id="blog1Post">
-      <img src="Halloween-images/Halloweencolors.png" alt="Halloween Superstitions Art" />
-      <h2>Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1</h2>
-      <div class="blog-date">
-        Date: June 12th, 2025
+    <!-- Blog 1: Yellow frame, blue post inside -->
+    <div class="blog-frame yellow" id="blog1Frame" style="display:none;">
+      <div class="blog-post active" id="blog1Post">
+        <img src="Halloween-images/Halloweencolors.png" alt="Halloween Superstitions Art" />
+        <h2>Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1</h2>
+        <div class="blog-date">
+          Date: June 12th, 2025
+        </div>
+        <p>Hello, it is me, Julie, the Halloween lover, and in this first blog post, I want to talk about superstitions that are really interesting.</p>
+        <ol>
+          <li>Young women back then would look into mirrors, hoping to see their future husband.</li>
+          <li>Seeing a spider on Halloween means that a deceased loved one is watching over you.</li>
+          <li>Dogs howling on Halloween can mean that they try to summon the dead.</li>
+          <li>If you hear an owl making sounds on Halloween, that can mean a witch is close, looking for ingredients or casting spells.</li>
+          <li>It is believed that you should not sweep your home on Halloween night; you might sweep away the good spirits.</li>
+          <li>Knocking 13 times on a wooden door is not advised on Halloween, since you might invite a demon.</li>
+          <li>If a cat crosses your path from left to right on Halloween, then lucky you—money is coming your way.</li>
+          <li>Previously, before pumpkins, people used to carve turnips on Halloween.</li>
+          <li>Bats flying in circles three times around your home on Halloween is not a good sign; it could mean that a loved one is about to pass away.</li>
+          <li>Wearing red, in Balkan folklore, was believed to keep vampires away.</li>
+        </ol>
+        <p>Be excited for part 2. For now, have a good day.<br>
+        Love, Julie ❤</p>
       </div>
-      <p>Hello, it is me, Julie, the Halloween lover, and in this first blog post, I want to talk about superstitions that are really interesting.</p>
-      <ol>
-        <li>Young women back then would look into mirrors, hoping to see their future husband.</li>
-        <li>Seeing a spider on Halloween means that a deceased loved one is watching over you.</li>
-        <li>Dogs howling on Halloween can mean that they try to summon the dead.</li>
-        <li>If you hear an owl making sounds on Halloween, that can mean a witch is close, looking for ingredients or casting spells.</li>
-        <li>It is believed that you should not sweep your home on Halloween night; you might sweep away the good spirits.</li>
-        <li>Knocking 13 times on a wooden door is not advised on Halloween, since you might invite a demon.</li>
-        <li>If a cat crosses your path from left to right on Halloween, then lucky you—money is coming your way.</li>
-        <li>Previously, before pumpkins, people used to carve turnips on Halloween.</li>
-        <li>Bats flying in circles three times around your home on Halloween is not a good sign; it could mean that a loved one is about to pass away.</li>
-        <li>Wearing red, in Balkan folklore, was believed to keep vampires away.</li>
-      </ol>
-      <p>Be excited for part 2. For now, have a good day.<br>
-      Love, Julie ❤</p>
     </div>
-    <div class="blog-post" id="blog2Post">
-      <div style="background:#a9a6e9; border-radius:18px; padding:24px; color:white; max-width:700px; margin:auto; margin-top:28px;">
+
+    <!-- Blog 2: Same frame structure, purple frame -->
+    <div class="blog-frame purple" id="blog2Frame" style="display:none;">
+      <div class="blog-post active" id="blog2Post">
         <p align="center">
           <img src="Halloween-images/Autumn1.jpg" width="180" style="display:inline-block; border-radius:12px; margin-right:8px;">
           <img src="Halloween-images/Autumn2.jpg" width="180" style="display:inline-block; border-radius:12px;">
@@ -258,51 +280,101 @@
     const blog1Btn = document.getElementById('blog1Btn');
     const blog2Btn = document.getElementById('blog2Btn');
     const gallerySection = document.getElementById('gallerySection');
-    const blog1Post = document.getElementById('blog1Post');
-    const blog2Post = document.getElementById('blog2Post');
+    const blog1Frame = document.getElementById('blog1Frame');
+    const blog2Frame = document.getElementById('blog2Frame');
 
-    // Hide all below Menu
+    // State
+    let menuOpen = false;
+    let blogMenuOpen = false;
+    let blog1Open = false;
+    let blog2Open = false;
+
     function hideAll() {
       halloweenImagesBtn.classList.add('hidden');
       blogFolderBtn.classList.add('hidden');
       blog1Btn.classList.add('hidden');
       blog2Btn.classList.add('hidden');
       gallerySection.classList.remove('active');
-      blog1Post.classList.remove('active');
-      blog2Post.classList.remove('active');
+      blog1Frame.style.display = "none";
+      blog2Frame.style.display = "none";
+      menuOpen = false;
+      blogMenuOpen = false;
+      blog1Open = false;
+      blog2Open = false;
     }
 
+    // MENU toggle
     menuBtn.onclick = function() {
-      hideAll();
-      halloweenImagesBtn.classList.remove('hidden');
-      blogFolderBtn.classList.remove('hidden');
-    };
-    halloweenImagesBtn.onclick = function() {
-      gallerySection.classList.toggle('active');
-      blog1Post.classList.remove('active');
-      blog2Post.classList.remove('active');
-      blog1Btn.classList.add('hidden');
-      blog2Btn.classList.add('hidden');
-    };
-    blogFolderBtn.onclick = function() {
-      blog1Btn.classList.remove('hidden');
-      blog2Btn.classList.remove('hidden');
-      gallerySection.classList.remove('active');
-      blog1Post.classList.remove('active');
-      blog2Post.classList.remove('active');
-    };
-    blog1Btn.onclick = function() {
-      blog1Post.classList.add('active');
-      blog2Post.classList.remove('active');
-      gallerySection.classList.remove('active');
-    };
-    blog2Btn.onclick = function() {
-      blog2Post.classList.add('active');
-      blog1Post.classList.remove('active');
-      gallerySection.classList.remove('active');
+      if (menuOpen) {
+        hideAll();
+      } else {
+        halloweenImagesBtn.classList.remove('hidden');
+        blogFolderBtn.classList.remove('hidden');
+        blog1Btn.classList.add('hidden');
+        blog2Btn.classList.add('hidden');
+        gallerySection.classList.remove('active');
+        blog1Frame.style.display = "none";
+        blog2Frame.style.display = "none";
+        menuOpen = true;
+        blogMenuOpen = false;
+        blog1Open = false;
+        blog2Open = false;
+      }
     };
 
-    // Hide all on load
+    // HALLOWEEN IMAGES toggle (only toggles gallery)
+    halloweenImagesBtn.onclick = function() {
+      gallerySection.classList.toggle('active');
+    };
+
+    // MY BLOG toggle (shows/hides Blog 1/2 buttons, hides posts)
+    blogFolderBtn.onclick = function() {
+      if (blogMenuOpen) {
+        blog1Btn.classList.add('hidden');
+        blog2Btn.classList.add('hidden');
+        blog1Frame.style.display = "none";
+        blog2Frame.style.display = "none";
+        blogMenuOpen = false;
+        blog1Open = false;
+        blog2Open = false;
+      } else {
+        blog1Btn.classList.remove('hidden');
+        blog2Btn.classList.remove('hidden');
+        blog1Frame.style.display = "none";
+        blog2Frame.style.display = "none";
+        blogMenuOpen = true;
+        blog1Open = false;
+        blog2Open = false;
+      }
+    };
+
+    // BLOG 1 toggle (shows/hides Blog 1 post, never hides buttons)
+    blog1Btn.onclick = function() {
+      if (blog1Open) {
+        blog1Frame.style.display = "none";
+        blog1Open = false;
+      } else {
+        blog1Frame.style.display = "block";
+        blog2Frame.style.display = "none";
+        blog1Open = true;
+        blog2Open = false;
+      }
+    };
+
+    // BLOG 2 toggle (shows/hides Blog 2 post, never hides buttons)
+    blog2Btn.onclick = function() {
+      if (blog2Open) {
+        blog2Frame.style.display = "none";
+        blog2Open = false;
+      } else {
+        blog2Frame.style.display = "block";
+        blog1Frame.style.display = "none";
+        blog2Open = true;
+        blog1Open = false;
+      }
+    };
+
+    // On page load, hide everything except Menu button
     hideAll();
   </script>
 </body>
