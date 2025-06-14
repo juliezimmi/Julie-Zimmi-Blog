@@ -135,16 +135,22 @@
       color: #222;
     }
     .hidden { display: none; }
+    /* Gallery Fade-In/Fade-Out Transition */
     .gallery {
-      display: none;
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.5s, max-height 0.5s;
+      display: flex;
       gap: 22px;
       flex-wrap: wrap;
       justify-content: center;
       margin: 32px 0 0;
-      animation: fadeIn 0.5s;
+      pointer-events: none;
     }
     .gallery.active {
-      display: flex;
+      opacity: 1;
+      max-height: 3000px;
+      pointer-events: auto;
     }
     .gallery a {
       margin: 0 8px 16px 8px;
@@ -266,36 +272,36 @@
 
     <section class="gallery" id="gallerySection">
       <!-- First 5 images from Halloween-images folder -->
-      <a href="Halloween-images/Halloween1.jpg" target="_blank"><img src="Halloween-images/Halloween1.jpg" alt="Halloween1"></a>
-      <a href="Halloween-images/Halloween2.jpg" target="_blank"><img src="Halloween-images/Halloween2.jpg" alt="Halloween2"></a>
-      <a href="Halloween-images/Halloween3.jpg" target="_blank"><img src="Halloween-images/Halloween3.jpg" alt="Halloween3"></a>
-      <a href="Halloween-images/Halloween4.jpg" target="_blank"><img src="Halloween-images/Halloween4.jpg" alt="Halloween4"></a>
-      <a href="Halloween-images/Halloween5.jpg" target="_blank"><img src="Halloween-images/Halloween5.jpg" alt="Halloween5"></a>
+      <a href="Halloween-images/Halloween1.jpg" target="_blank"><img src="Halloween-images/Halloween1.jpg" alt="Halloween1" loading="lazy"></a>
+      <a href="Halloween-images/Halloween2.jpg" target="_blank"><img src="Halloween-images/Halloween2.jpg" alt="Halloween2" loading="lazy"></a>
+      <a href="Halloween-images/Halloween3.jpg" target="_blank"><img src="Halloween-images/Halloween3.jpg" alt="Halloween3" loading="lazy"></a>
+      <a href="Halloween-images/Halloween4.jpg" target="_blank"><img src="Halloween-images/Halloween4.jpg" alt="Halloween4" loading="lazy"></a>
+      <a href="Halloween-images/Halloween5.jpg" target="_blank"><img src="Halloween-images/Halloween5.jpg" alt="Halloween5" loading="lazy"></a>
       <!-- 24 new images from Hallo2 folder -->
-      <a href="Hallo2/Compress_20250614_034645_5110.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034645_5110.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034646_6918.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034646_6918.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034648_8991.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034648_8991.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034651_1031.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034651_1031.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034652_2891.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034652_2891.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034655_5378.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034655_5378.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034657_7825.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034657_7825.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034700_0354.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034700_0354.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034703_3109.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034703_3109.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034705_5463.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034705_5463.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034708_8625.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034708_8625.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034710_0196.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034710_0196.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034712_2183.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034712_2183.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034714_4637.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034714_4637.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034717_7399.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034717_7399.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034718_8969.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034718_8969.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034721_1435.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034721_1435.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034724_4704.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034724_4704.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034726_6231.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034726_6231.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034728_8504.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034728_8504.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034730_0051.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034730_0051.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034732_2184.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034732_2184.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034734_4473.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034734_4473.jpg" alt=""></a>
-      <a href="Hallo2/Compress_20250614_034736_6213.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034736_6213.jpg" alt=""></a>
+      <a href="Hallo2/Compress_20250614_034645_5110.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034645_5110.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034646_6918.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034646_6918.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034648_8991.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034648_8991.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034651_1031.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034651_1031.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034652_2891.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034652_2891.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034655_5378.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034655_5378.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034657_7825.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034657_7825.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034700_0354.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034700_0354.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034703_3109.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034703_3109.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034705_5463.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034705_5463.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034708_8625.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034708_8625.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034710_0196.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034710_0196.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034712_2183.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034712_2183.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034714_4637.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034714_4637.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034717_7399.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034717_7399.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034718_8969.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034718_8969.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034721_1435.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034721_1435.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034724_4704.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034724_4704.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034726_6231.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034726_6231.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034728_8504.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034728_8504.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034730_0051.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034730_0051.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034732_2184.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034732_2184.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034734_4473.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034734_4473.jpg" alt="" loading="lazy"></a>
+      <a href="Hallo2/Compress_20250614_034736_6213.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034736_6213.jpg" alt="" loading="lazy"></a>
     </section>
 
     <!-- Blog 1: Yellow frame, blue post inside -->
@@ -502,4 +508,4 @@
     setInterval(createLeaf, 650);
   </script>
 </body>
-  </html>
+  </html> 
