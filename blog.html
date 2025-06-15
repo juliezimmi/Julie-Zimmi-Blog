@@ -1,0 +1,23 @@
+---
+layout: default
+title: Julie Zimmi Blog
+---
+
+<h1 class="blog-title">Julie Zimmi Blog</h1>
+<div style="max-width:700px;margin:0 auto;">
+  {% for post in site.posts %}
+    <div class="blog-frame yellow" style="margin-bottom:40px;">
+      <div class="blog-post active" style="display:block;">
+        {% if post.image %}
+          <img src="{{ post.image }}" alt="Blog image" style="max-width:100%;border-radius:13px;margin-bottom:12px;">
+        {% endif %}
+        <h2><a href="{{ post.url }}" style="color:#3498db;">{{ post.title }}</a></h2>
+        <div class="blog-date" style="color:#b3e5fc;">
+          {{ post.date | date: "%B %d, %Y" }}
+        </div>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <a href="{{ post.url }}" style="color:#ff6f3c;">Read more…</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
