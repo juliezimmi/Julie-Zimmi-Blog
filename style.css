@@ -225,3 +225,66 @@ body {
 .blog-button:hover {
   background: #3a0ca3;
 }
+.triangle-frame-outer {
+  position: relative;
+  background: #FFD600; /* dark yellow */
+  border-radius: 18px;
+  padding: 3rem 2rem;
+  margin: 2em 0;
+  box-shadow: 0 8px 32px #0006;
+  overflow: hidden;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.triangle-frame-inner {
+  position: relative;
+  z-index: 2;
+}
+.triangle-frame-outer::before,
+.triangle-frame-outer::after,
+.triangle-frame-inner::before,
+.triangle-frame-inner::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 5px;
+  background: #111; /* black triangles */
+  border-radius: 3px;
+  z-index: 3;
+}
+.triangle-frame-outer::before {
+  top: 0;
+  left: 0;
+  transform: translate(-8px, -8px) rotate(-32deg);
+}
+.triangle-frame-outer::after {
+  top: 0;
+  right: 0;
+  transform: translate(8px, -8px) rotate(32deg);
+}
+.triangle-frame-inner::before {
+  bottom: 0;
+  left: 0;
+  transform: translate(-8px, 8px) rotate(32deg);
+}
+.triangle-frame-inner::after {
+  bottom: 0;
+  right: 0;
+  transform: translate(8px, 8px) rotate(-32deg);
+}
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+.fact-image {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px #0003;
+  background: #FFD600;
+  margin: 0 1rem;
+  }
