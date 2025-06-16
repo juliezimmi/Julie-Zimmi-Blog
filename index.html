@@ -129,6 +129,8 @@
       background: #b3e5fc;
       color: #01579b;
       padding: 13px 0;
+      white-space: normal;
+      word-break: break-word;
     }
     .blog-btn:hover {
       background: #81d4fa;
@@ -187,6 +189,10 @@
       background: #a9a6e9;
       color: white;
     }
+    .blog-frame.blue {
+      background: #3498db;
+      color: #fffbe7;
+    }
     .blog-post {
       background: #3498db;
       color: #fffbe7;
@@ -232,6 +238,29 @@
     .blog-post p {
       color: #fffbe7;
     }
+    /* Blog 3: darker grey background inside blue frame, same text style as others */
+    .blog-frame.blue .blog-post.grey-bg {
+      background: #2b2d31;
+      color: #fffbe7;
+    }
+    /* Blog 3 images row */
+    .blog-post .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0 14px;
+      flex-wrap: wrap;
+    }
+    .blog-post .fact-image {
+      width: 170px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+      background: #fff;
+    }
+    @media (max-width: 650px) {
+      .blog-post .image-row { flex-direction: column; align-items: center; }
+      .blog-post .fact-image { width: 95vw; max-width: 250px; }
+    }
     #leaves-container {
       pointer-events:none;
       position:fixed;
@@ -269,15 +298,14 @@
     <button class="folder-btn hidden" id="blogFolderBtn">My Blog</button>
     <button class="blog-btn hidden" id="blog1Btn">Blog 1: 10 Rare, Interesting Halloween Superstitions!</button>
     <button class="blog-btn hidden" id="blog2Btn">Blog 2: 15 Rare, Interesting Halloween Superstitions!</button>
+    <button class="blog-btn hidden" id="blog3Btn">Blog 3: 20 Rare Halloween Facts No Other Blogger Has Ever Mentioned Before! Part 1</button>
 
     <section class="gallery" id="gallerySection">
-      <!-- First 5 images from Halloween-images folder -->
       <a href="Halloween-images/Halloween1.jpg" target="_blank"><img src="Halloween-images/Halloween1.jpg" alt="Halloween1" loading="lazy"></a>
       <a href="Halloween-images/Halloween2.jpg" target="_blank"><img src="Halloween-images/Halloween2.jpg" alt="Halloween2" loading="lazy"></a>
       <a href="Halloween-images/Halloween3.jpg" target="_blank"><img src="Halloween-images/Halloween3.jpg" alt="Halloween3" loading="lazy"></a>
       <a href="Halloween-images/Halloween4.jpg" target="_blank"><img src="Halloween-images/Halloween4.jpg" alt="Halloween4" loading="lazy"></a>
       <a href="Halloween-images/Halloween5.jpg" target="_blank"><img src="Halloween-images/Halloween5.jpg" alt="Halloween5" loading="lazy"></a>
-      <!-- 24 new images from Hallo2 folder -->
       <a href="Hallo2/Compress_20250614_034645_5110.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034645_5110.jpg" alt="" loading="lazy"></a>
       <a href="Hallo2/Compress_20250614_034646_6918.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034646_6918.jpg" alt="" loading="lazy"></a>
       <a href="Hallo2/Compress_20250614_034648_8991.jpg" target="_blank"><img src="Hallo2/Compress_20250614_034648_8991.jpg" alt="" loading="lazy"></a>
@@ -309,9 +337,7 @@
       <div class="blog-post active" id="blog1Post">
         <img src="Halloween-images/Halloweencolors.png" alt="Halloween Superstitions Art" />
         <h2>Blog 1: 10 Rare, Interesting Halloween Superstitions! Part 1</h2>
-        <div class="blog-date">
-          Date: June 12th, 2025
-        </div>
+        <div class="blog-date">Date: June 12th, 2025</div>
         <p>Hello, it is me, Julie, the Halloween lover, and in this first blog post, I want to talk about superstitions that are really interesting.</p>
         <ol>
           <li>Young women back then would look into mirrors, hoping to see their future husband.</li>
@@ -325,8 +351,7 @@
           <li>Bats flying in circles three times around your home on Halloween is not a good sign; it could mean that a loved one is about to pass away.</li>
           <li>Wearing red, in Balkan folklore, was believed to keep vampires away.</li>
         </ol>
-        <p>Be excited for part 2. For now, have a good day.<br>
-        Love, Julie ❤</p>
+        <p>Be excited for part 2. For now, have a good day.<br>Love, Julie ❤</p>
       </div>
     </div>
 
@@ -368,6 +393,47 @@
         </p>
       </div>
     </div>
+
+    <!-- Blog 3: Blue frame, dark grey background inside, same text style as other blogs -->
+    <div class="blog-frame blue" id="blog3Frame" style="display:none;">
+      <div class="blog-post grey-bg active" id="blog3Post">
+        <h2 style="text-align:center;">Blog 3: 20 Rare Halloween Facts No Other Blogger Has Ever Mentioned Before! Part 1</h2>
+        <div class="blog-date">
+          Date: June 16th, 2025
+        </div>
+        <p>Hello readers, today, with the help of AI, I wanna share with you the most interesting and rarest Halloween facts that you definitely haven't heard of.</p>
+        <ol>
+          <li>In medieval times, people didn't eat cheese on Halloween to please spirits.</li>
+          <li>In the past, in order to confuse witches, Irish families placed two wooden spoons at their doorsteps in the shape of a cross.</li>
+          <li>To avoid restless ghosts, Scottish coastal folk left pieces of driftwood outside their doors.</li>
+          <li>Welsh farmers used to make circles out of ash around their houses on Halloween. That way, they kept evil spirits out.</li>
+          <li>An Irish tradition used to be scattering dust from the cemetery into the fireplace hearth as protection from evil.</li>
+          <li>Back in medieval times, you did not hear any church bells on Halloween so that the dead could rest peacefully.</li>
+          <li>Picking and eating blackberries after Halloween was believed by the Irish and Scottish to bring a curse from the evil Púca spirit.</li>
+          <li>In Scotland, some people thought that light attracts bad spirits, so they left the light out of their turnip lanterns.</li>
+          <li>If you see only one leaf on a tree after Halloween, that foretells the passing of someone before Christmas.</li>
+          <li>During the meal, Welsh and Cornish families didn't speak, ensuring peace for wandering spirits.</li>
+        </ol>
+        <div class="image-row">
+          <img src="Hallo2/Fact1.png" alt="Fact 1" class="fact-image" />
+          <img src="Hallo2/Fact2.png" alt="Fact 2" class="fact-image" />
+        </div>
+        <ol start="11">
+          <li>If you peel an apple and it lands in the form of a ring, that means you have a spirit attached to you.</li>
+          <li>Germans in the 17th century believed that hearing a chicken crow at night meant someone was about to die.</li>
+          <li>Balkan countries believed that the moonlight seen through fog helped the spirit visit the living.</li>
+          <li>On Halloween, seeing fog at crossroads, the Slavic believed that was the breath of souls trying to come back to the living world.</li>
+          <li>Avoid tall stones to not attract bad luck, as it was believed that witches used to travel these invisible paths.</li>
+          <li>If you wear a cloak the other way round or go around your home in circles, that was supposed to break curses.</li>
+          <li>Seeing a bat on Halloween, in rural Poland and Germany, meant good luck and protection.</li>
+          <li>Crows were seen as messengers from the dead, instead of as signs of bad luck.</li>
+          <li>Back in the old days, a bonfire that didn't get lit the first time predicted diseases or difficult winters.</li>
+          <li>A tradition you haven't heard of is that Welsh and Cornish people didn't talk during the Halloween meal in order to honor spirits.</li>
+        </ol>
+        <p>If you liked this blog post, make sure to share it with your friends.</p>
+        <p>See ya,<br>Julie</p>
+      </div>
+    </div>
   </div>
   <script>
     // DOM Elements
@@ -376,28 +442,34 @@
     const blogFolderBtn = document.getElementById('blogFolderBtn');
     const blog1Btn = document.getElementById('blog1Btn');
     const blog2Btn = document.getElementById('blog2Btn');
+    const blog3Btn = document.getElementById('blog3Btn');
     const gallerySection = document.getElementById('gallerySection');
     const blog1Frame = document.getElementById('blog1Frame');
     const blog2Frame = document.getElementById('blog2Frame');
+    const blog3Frame = document.getElementById('blog3Frame');
 
     // State
     let menuOpen = false;
     let blogMenuOpen = false;
     let blog1Open = false;
     let blog2Open = false;
+    let blog3Open = false;
 
     function hideAll() {
       halloweenImagesBtn.classList.add('hidden');
       blogFolderBtn.classList.add('hidden');
       blog1Btn.classList.add('hidden');
       blog2Btn.classList.add('hidden');
+      blog3Btn.classList.add('hidden');
       gallerySection.classList.remove('active');
       blog1Frame.style.display = "none";
       blog2Frame.style.display = "none";
+      blog3Frame.style.display = "none";
       menuOpen = false;
       blogMenuOpen = false;
       blog1Open = false;
       blog2Open = false;
+      blog3Open = false;
     }
 
     // MENU toggle
@@ -409,13 +481,16 @@
         blogFolderBtn.classList.remove('hidden');
         blog1Btn.classList.add('hidden');
         blog2Btn.classList.add('hidden');
+        blog3Btn.classList.add('hidden');
         gallerySection.classList.remove('active');
         blog1Frame.style.display = "none";
         blog2Frame.style.display = "none";
+        blog3Frame.style.display = "none";
         menuOpen = true;
         blogMenuOpen = false;
         blog1Open = false;
         blog2Open = false;
+        blog3Open = false;
       }
     };
 
@@ -424,24 +499,30 @@
       gallerySection.classList.toggle('active');
     };
 
-    // MY BLOG toggle (shows/hides Blog 1/2 buttons, hides posts)
+    // MY BLOG toggle (shows/hides Blog 1/2/3 buttons, hides posts)
     blogFolderBtn.onclick = function() {
       if (blogMenuOpen) {
         blog1Btn.classList.add('hidden');
         blog2Btn.classList.add('hidden');
+        blog3Btn.classList.add('hidden');
         blog1Frame.style.display = "none";
         blog2Frame.style.display = "none";
+        blog3Frame.style.display = "none";
         blogMenuOpen = false;
         blog1Open = false;
         blog2Open = false;
+        blog3Open = false;
       } else {
         blog1Btn.classList.remove('hidden');
         blog2Btn.classList.remove('hidden');
+        blog3Btn.classList.remove('hidden');
         blog1Frame.style.display = "none";
         blog2Frame.style.display = "none";
+        blog3Frame.style.display = "none";
         blogMenuOpen = true;
         blog1Open = false;
         blog2Open = false;
+        blog3Open = false;
       }
     };
 
@@ -453,8 +534,10 @@
       } else {
         blog1Frame.style.display = "block";
         blog2Frame.style.display = "none";
+        blog3Frame.style.display = "none";
         blog1Open = true;
         blog2Open = false;
+        blog3Open = false;
       }
     };
 
@@ -466,8 +549,25 @@
       } else {
         blog2Frame.style.display = "block";
         blog1Frame.style.display = "none";
+        blog3Frame.style.display = "none";
         blog2Open = true;
         blog1Open = false;
+        blog3Open = false;
+      }
+    };
+
+    // BLOG 3 toggle (shows/hides Blog 3 post, never hides buttons)
+    blog3Btn.onclick = function() {
+      if (blog3Open) {
+        blog3Frame.style.display = "none";
+        blog3Open = false;
+      } else {
+        blog3Frame.style.display = "block";
+        blog1Frame.style.display = "none";
+        blog2Frame.style.display = "none";
+        blog3Open = true;
+        blog1Open = false;
+        blog2Open = false;
       }
     };
 
@@ -508,4 +608,4 @@
     setInterval(createLeaf, 650);
   </script>
 </body>
-  </html> 
+      </html>
